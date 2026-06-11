@@ -24,7 +24,7 @@ Supporting documentation is available in the repository: Name repository
 
 ## Dashboard Preview
 
-![Dashboard Preview](Power%BI/Power_BI_Dashboard_Screenshot.png)
+![Dashboard Preview](Power%20BI/Power_BI_Dashboard_Screenshot.png)
 
 ## Key Findings
 
