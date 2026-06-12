@@ -288,7 +288,7 @@ This approach simplified the Power BI model, reduced calculation complexity, and
 
 The Power BI dataset combines fact tables, dimension tables, and SQL-based KPI views generated during the SQL development phase.
 
-![Power BI Data Model](Power_BI/Power_BI_Data_Model_Screenshot.png)
+![Power BI Data Model](Power%20BI/Power_BI_Data_Model_Screenshot.png)
 
 ## Dashboard Design Principles
 
@@ -304,7 +304,7 @@ Visualizations were selected to support:
 
 ## Supporting Documentation
 
-- [Power BI Dashboard File](Power_BI)
+- [Power BI Dashboard File](Power%20BI)
 
 ## Advanced SQL Analysis (BONUS)
 
