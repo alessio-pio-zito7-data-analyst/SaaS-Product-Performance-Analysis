@@ -154,3 +154,90 @@ The model separates business events (facts) from descriptive attributes (dimensi
 The analytical model consists of two fact tables and three dimension tables designed to support product usage, retention, churn, and time-series analysis.
 
 ![Star Schema](Star_Schema.png)
+
+## Data Quality & Validation
+
+Before building the analytical model and calculating KPIs, the dataset underwent a structured data ingestion, debugging, and validation process.
+
+A separate project was created to document the complete data preparation workflow, including data ingestion, source-level validation, debugging activities, and data quality checks.
+
+**Previous Project Documentation**
+
+- [SaaS Dataset Cleaning & Data Modelling Project](https://github.com/alessio-pio-zito7-data-analyst/SaaS-Dataset-Cleaning-Data-Modelling-Project)
+
+## Issues Identified in the Original Dataset
+
+During the ingestion and exploration process, several inconsistencies were identified, including:
+
+- misleading boolean flags
+- duplicated identifiers
+- mixed business logic
+- formatting and NULL issues
+- inconsistent relational modelling
+- subscription logic stored in non-normalized structures
+
+These issues would have compromised:
+- metric consistency
+- relational integrity
+- KPI reliability
+- downstream analytical accuracy
+
+### Data Ingestion & Source Validation
+
+The raw SaaS dataset was imported into MySQL and validated before analytical modelling.
+
+![Data Ingestion Example](Data_Ingestion_Debug_and_Validation/Data_Ingestion_Example_Screenshot.png)
+
+Documented activities included:
+
+- Data ingestion using SQL scripts
+- Primary Key validation
+- Foreign Key validation
+- Null and missing value checks
+- Whitespace and formatting checks
+- Business logic validation
+- Data debugging and correction of identified issues
+
+**Supporting Documentation**
+
+- [Full Data Ingestion SQL](Data_Ingestion_Debug_and_Validation/Data_Ingestion.sql)
+- [Full Debugging & Data Validation SQL](Data_Ingestion_Debug_and_Validation/Debugging_&_Data_Validation.sql)
+
+### Relationship Validation
+
+After creating the fact and dimension tables, additional validation was performed to verify the integrity of the analytical model.
+
+Validation activities included:
+
+- Dimension Primary Key uniqueness checks
+- Orphan record detection
+- Referential integrity validation
+- Fact-to-dimension relationship validation
+
+**Supporting Documentation**
+
+- [Fact & Dimension Tables Creation Script](SQL_Scripts/Fact_&_Dimension_Tables.sql)
+- [Relationship Validation Checks](SQL_Scripts/Relationships_Checks.sql)
+
+These validation steps ensured that KPI calculations and dashboard metrics were built on a reliable and consistent analytical model.
+
+## KPI Calculation Logic
+
+Before SQL development, the calculation logic for each KPI was documented, including formulas, source tables, and required joins.
+
+**Supporting Documentation**
+
+- [KPI Calculation Sheet](Business_Questions_and_KPIs_Definition/KPI_Calculation_Sheet.md)
+
+| KPI | Formula | Source Tables |
+|------|------|------|
+| Total Feature Usage | SUM(usage_count) | fact_feature_usage |
+| Total Usage Duration Mins | SUM(usage_duration_mins) | fact_feature_usage |
+| Feature Usage Frequency | SUM(usage_count) by day/week/month/year | fact_feature_usage |
+| Average Usage Duration Mins | AVG(usage_duration_mins) | fact_feature_usage |
+| Average Usage Count | AVG(usage_count) | fact_feature_usage |
+| Retention Rate By Feature | Retained Accounts Using Feature / Total Accounts Using Feature | fact_feature_usage, dim_subscriptions, dim_accounts, fact_churn_events |
+| Churn Rate By Feature | Churned Accounts Using Feature / Total Accounts Using Feature | fact_feature_usage, dim_subscriptions, dim_accounts, fact_churn_events |
+| Feature Adoption Rate | Accounts Using Feature / Total Active Accounts | fact_feature_usage, dim_subscriptions, dim_accounts |
+
+
