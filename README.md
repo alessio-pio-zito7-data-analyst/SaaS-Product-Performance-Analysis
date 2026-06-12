@@ -20,6 +20,8 @@ The analysis followed a structured Business Intelligence workflow:
 
 Business Context → Data Modeling → Data Validation → Business Questions → KPI Definition → KPI Logic → SQL Development → Dashboard Design
 
+The business questions, KPI definitions, KPI calculation logic, and SQL-based findings were documented before dashboard design.
+
 Supporting documentation is available in the repository:
 
 - [Business Questions and KPI Definition](Business_Questions_and_KPIs_Definition/)
@@ -138,3 +140,17 @@ The SQL analysis identified several notable patterns before dashboard developmen
 - Retention rates remained relatively similar across all features, suggesting that no individual feature emerged as a clear retention driver.
 
 - Churn and retention patterns indicate that additional variables such as customer characteristics, subscription plans, industry segments, or churn reasons should be investigated in future analyses.
+
+# Technical Implementation
+
+## Data Model
+
+A Star Schema data model was designed to support KPI calculation, trend analysis, customer segmentation, and dashboard performance.
+
+The model separates business events (facts) from descriptive attributes (dimensions), following common Business Intelligence modelling practices.
+
+## Star Schema
+
+The analytical model consists of two fact tables and three dimension tables designed to support product usage, retention, churn, and time-series analysis.
+
+![Star Schema](Star_Schema.png)
