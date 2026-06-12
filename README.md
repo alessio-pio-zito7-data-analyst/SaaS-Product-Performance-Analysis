@@ -170,7 +170,7 @@ These issues would have compromised:
 - KPI reliability
 - downstream analytical accuracy
 
-### Data Ingestion & Source Validation
+## Data Ingestion & Source Validation
 
 The raw SaaS dataset was imported into MySQL and validated before analytical modelling.
 
@@ -179,7 +179,7 @@ The raw SaaS dataset was imported into MySQL and validated before analytical mod
 Final relational dataset model created after the cleaning and restructuring process using Excel and MySQL.
 The dataset model was created in Power BI.
 
-![Data Model Schema](Data_Modelling/Data_Model_Overview.png)
+![Data Model Schema](Processed_Dataset/Data_Model_Overview.png)
 
 Documented activities included:
 
@@ -212,7 +212,7 @@ The analytical model consists of two fact tables and three dimension tables desi
 
 ![Star Schema](Star_Schema.png)
 
-### Relationship Validation
+## Relationship Validation
 
 After creating the fact and dimension tables, additional validation was performed to verify the integrity of the analytical model.
 
@@ -276,3 +276,73 @@ The example below shows the SQL output used to calculate Retention Rate and Chur
 
 ![Retention and Churn Rate by Feature](SQL_Scripts/Output_Example_Churn_Retention_By_Feature_Screenshot.png)
 
+## Power BI Development
+
+The Power BI dashboard was developed using the validated Star Schema and SQL-based KPI views created during the analytical phase.
+
+Rather than recreating KPI calculations in Power BI, the dashboard consumes pre-calculated SQL views, ensuring consistency between the database layer and the reporting layer.
+
+This approach simplified the Power BI model, reduced calculation complexity, and centralized business logic within the database.
+
+## Power BI Data Model
+
+The Power BI dataset combines fact tables, dimension tables, and SQL-based KPI views generated during the SQL development phase.
+
+![Power BI Data Model](Power_BI/Power_BI_Data_Model_Screenshot.png)
+
+## Dashboard Design Principles
+
+The dashboard was designed to answer the Product Manager's business questions as quickly as possible.
+
+Visualizations were selected to support:
+
+- KPI monitoring
+- Feature-level comparison
+- Trend analysis
+- Retention and churn evaluation
+- Executive-level decision making
+
+## Supporting Documentation
+
+- [Power BI Dashboard File](Power_BI)
+
+## Advanced SQL Analysis (BONUS)
+
+In addition to the KPI calculations used for dashboard development, exploratory SQL analysis was performed to investigate product usage patterns and demonstrate advanced analytical techniques.
+
+These analyses were not used as dashboard data sources, but were developed to explore the dataset and answer additional business questions.
+
+Techniques demonstrated include:
+
+- Common Table Expressions (CTEs)
+- Window Functions
+- LAG()
+- Year-over-Year (YoY) Analysis
+- Trend Analysis
+- Multi-step Analytical Queries
+
+### Example: Year-over-Year Feature Engagement Analysis
+
+The example below uses the `LAG()` window function to compare yearly feature engagement metrics and calculate YoY growth percentages.
+
+![Advanced SQL Analysis](Sql_Advanced_Analysis/KPIs_1_&_2_Output.png)
+
+**Supporting Documentation**
+
+- [Advanced SQL Analysis](MySQL_Advanced_Analysis.sql)
+
+## Conclusion
+
+This project demonstrates an end-to-end Business Intelligence workflow, covering data ingestion, data validation, dimensional modelling, KPI design, SQL analysis, and Power BI dashboard development.
+
+The objective was not only to build a dashboard, but to follow a structured BI process that transforms raw data into actionable business insights.
+
+Thank you for reviewing this project
+
+--- 
+
+*Alessio Pio Zito*
+
+*Amsterdam, The Netherlands*
+
+*June 2026*
