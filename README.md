@@ -337,7 +337,7 @@ This project demonstrates an end-to-end Business Intelligence workflow, covering
 
 The objective was not only to build a dashboard, but to follow a structured BI process that transforms raw data into actionable business insights.
 
-Thank you for reviewing this project
+Thank you for reviewing this project.
 
 --- 
 
