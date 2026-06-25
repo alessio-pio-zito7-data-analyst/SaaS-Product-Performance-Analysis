@@ -18,7 +18,7 @@ The objective of this project is to help Product and Customer Success stakeholde
 
 The analysis followed a structured Business Intelligence workflow:
 
-Business Context → Data Modeling → Data Validation → Business Questions → KPI Definition → KPI Logic → SQL Development → Dashboard Design
+Business Context → Data Modelling → Data Validation → Business Questions → KPI Definition → KPI Logic → SQL Development → Dashboard Design
 
 The business questions, KPI definitions, KPI calculation logic, and SQL-based findings were documented before dashboard design.
 
